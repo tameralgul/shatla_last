@@ -1,0 +1,69 @@
+.item-itself-nav{
+    margin-left: 0.3em;
+    margin-top: 0.4em;
+    border-bottom: 3px solid #ffffff;
+}
+.service-content{
+    margin-top: 7em;
+}
+.service-image{
+    width: 370px;
+    height: 370px;
+    border-radius: 10px;
+}
+.title-content-service{
+    font-size: 1.8em;
+    font-family: Cairo, sans-serif;
+    font-weight: 600;
+}
+.content-contetn-service{
+    font-size: 1.1em;
+    margin-top: 1.5em;
+    line-height: 2em;
+    font-family: Cairo, sans-serif;
+}
+
+.nav-link{
+    margin-right: 1em!important;
+}
+@media (max-width: 767px) {
+    .title-content-service{
+        margin-right: 0.7em;
+        margin-top: 1em;
+    }
+    .content-contetn-service{
+        margin-right: 1.2em;
+    }
+    .navbar-toggler-icon {
+        background: url(../images/outline_menu_white_24dp.png) center center no-repeat !important;
+    }
+    .navbar-brand{
+        margin-right: 1em;
+        margin-top: 1em;
+    }
+    .header-icon-content{
+        margin-right: 1em;
+        margin-bottom: 1em;
+    }
+    .item-itself-nav{
+        border-bottom: none!important;
+    }
+    .nav-link{
+        margin-top: 1em;
+    }
+    .navbar-toggler:focus,
+    .navbar-toggler:active,
+    .navbar-toggler-icon:focus {
+        outline: none;
+        box-shadow: none;
+    }
+    .btn-primary{
+        width: 50% !important;
+    }
+}
+@media (max-width: 380px) {
+    .service-image{
+        width: 280px;
+        height: 280px;
+    }
+}
