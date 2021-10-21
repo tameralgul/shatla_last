@@ -23,6 +23,8 @@
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://use.fontawesome.com/e5ae5ff4d3.js"></script>
+    <script type="text/javascript" src="https://goSellJSLib.b-cdn.net/v1.6.0/js/gosell.js"></script>
+    
     <title>@yield('title',"متجر شتلة")</title>
     <link href="{{asset('assets/css/cart.css')}}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
