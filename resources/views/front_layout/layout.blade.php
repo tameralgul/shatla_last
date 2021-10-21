@@ -1,4 +1,4 @@
-
+{{-- {{ dd($pages_data) }} --}}
 <!DOCTYPE html>
 <html lang="ar">
 
@@ -23,20 +23,18 @@
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://use.fontawesome.com/e5ae5ff4d3.js"></script>
+<script type="text/javascript" src="https://goSellJSLib.b-cdn.net/v1.6.0/js/gosell.js"></script>
+    
     <title>@yield('title',"متجر شتلة")</title>
     <link href="{{asset('assets/css/cart.css')}}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <style>
-        .navbar-toggler{
-            fill: #4950;
-        }
-    </style>
     @stack('css')
 </head>
 
 <body>
+    <div id="root"></div>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content container">
@@ -73,7 +71,7 @@
         </div>
     </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-white py-2 sticky-top" style="padding-bottom: 0px!important;">
-        <div class="container" >
+        <div class="container">
             <a class="navbar-brand mr-0" href="{{ route('home.index') }}">
                 <div class="logo">
                     <img src="{{ asset('images/logo/'.  $setting->logo) }}" class="w-100 h-100" alt="logo" />
@@ -81,7 +79,7 @@
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <svg style="fill: #616161;" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+                <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -138,12 +136,6 @@
                             </div>
                         </li>
                     </ul>
-                    <select  name="city" style="border: none;appearance: none;" id="city" class="form-control city" >
-                        <option value="">اختر من هنا</option>
-                        @foreach($cities as $row)
-                            <option value="{{$row->id}}">{{$row->name}}</option>
-                        @endforeach
-                    </select>
                 </div>
                 <div class="hide-lg">
                     <div>
@@ -195,10 +187,8 @@
             </div>
         </div>
     </div>
-<main>
 
     @yield('content')
-</main>
     <footer class="text-right">
         <div class="container">
             <div class="row d-flex align-items-baseline mb-3">
@@ -278,6 +268,16 @@
                             </svg>
                         </div>
                     </div>
+                    <div class="primary-font">
+                        <p class="primary-font text-color-black help-title"> تغيير المدينة</p>
+                    </div>
+
+                    <select name="city" id="city" class="form-control city">
+                        <option value="">اختر من هنا</option>
+                        @foreach($cities as $row)
+                        <option value="{{$row->id}}">{{$row->name}}</option>
+                        @endforeach
+                    </select>
                 </div>
 
             </div>
@@ -438,7 +438,7 @@
     </script>
     <script>
         $(document).ready(function (){
-        @if(session()->has('city'))
+        @if(session()->get('city'))
             let city = `{{session()->get('city')}}`;
 
                 $('.city').val(city)
@@ -464,21 +464,7 @@
         })
 
     </script>
-<script>
-    $(document).ready(function () {
-        $('main').click(function (event) {
-            var click = $(event.target);
-            var _open = $(".navbar-collapse").hasClass("show");
-            if (_open === true && !click.hasClass("navbar-toggler")) {
-                $(".navbar-toggler").click();
-            }
-        });
-    });
-</script>
-
-
-@yield('js')
-
+    @yield('js')
 </body>
 
 </html>
