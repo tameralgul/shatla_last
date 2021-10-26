@@ -125,7 +125,7 @@
                     </div>
                 </div>
             </div>
-			<button id="openLightBox" class="col-sm-12 btn btn-checkout mb-3 font-weight-bold " onclick="goSell.openLightBox()">
+	    <button id="openLightBox" class="col-sm-12 btn btn-checkout mb-3 font-weight-bold " onclick="goSell.openPaymentPage()">
                 تأكيد الطلب	
             </button>
 
@@ -182,7 +182,7 @@
       console.log("onClose Event");
     },
     backgroundImg: {
-      url: "imgURL",
+      url: "http://shtlah.com/images/logo/16341511433uYQUk0cOUAz.png",
       opacity: "0.5",
     },
     labels: {
@@ -232,7 +232,7 @@
 		foreach(session('cart') as $id => $details){
 			$t =  $details['available_in_stock'] * (((100 - $details['product_discount_id']) * $details['price'])/100);
 			echo '{
-				id: 1,
+				id: 11,
 				name: "'.$details['title'].'",
 				description: "",
 				quantity: "'.$details['available_in_stock'].'",
@@ -257,8 +257,8 @@
       description: "فاتورة شراء",
       statement_descriptor: "Sample",
       reference: {
-        transaction: "txn_0001", //here you should put transaction id 
-        order: "ord_0001", //here you should put order id 
+        transaction: "txn_0011", //here you should put transaction id 
+        order: "ord_0011", //here you should put order id 
       },
       hashstring:"",
       metadata: {},
@@ -266,8 +266,8 @@
         email: false,
         sms: true,
       },
-      redirect: "https://shtlah.com/cart", //here you should type url to receive payment response.
-      post: null,
+      redirect: "https://shtlah.com/paid", //here you should type url to receive payment response.
+      post: "https://shtlah.com/paid",
     },
   },
 });
