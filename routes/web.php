@@ -27,6 +27,7 @@ use App\Http\Controllers\front\CategoryController as FrontCategory;
 use App\Http\Controllers\front\CommentController;
 use App\Http\Controllers\front\ContactController;
 use App\Http\Controllers\front\PaymentController;
+use App\Http\Controllers\front\PaidController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
@@ -207,6 +208,8 @@ Route::group(['prefix' => 'dashboard', 'namespace' => 'dashboard'], function () 
 Route::group(['namespace' => 'front'], function () {
     Route::get('/', [indexController::class, 'index'])->name('home.index');
     Route::get('cart', [CartController::class, 'cart'])->name('cart');
+        Route::get('paid', [PaidController::class, 'index'])->name('paid');
+        Route::post('paid', [PaidController::class, 'index'])->name('paid');
     Route::post('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add.to.cart');
     Route::patch('update-cart', [CartController::class, 'update'])->name('update.cart');
     Route::delete('remove-from-cart', [CartController::class, 'remove'])->name('remove.from.cart');
